@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 num_features=args.num_features,
                 growth_rate=args.growth_rate,
                 num_blocks=args.num_blocks,
-                num_layers=args.num_layers).to(device)
+                num_layers=args.num_layers)
 
     if args.weights_file is not None:
         state_dict = model.state_dict()
@@ -88,8 +88,8 @@ if __name__ == '__main__':
             for data in train_dataloader:
                 inputs, labels = data
 
-                inputs = inputs.to(device)
-                labels = labels.to(device)
+                inputs = inputs
+                labels = labels
 
                 preds = model(inputs)
 
@@ -113,8 +113,8 @@ if __name__ == '__main__':
         for data in eval_dataloader:
             inputs, labels = data
 
-            inputs = inputs.to(device)
-            labels = labels.to(device)
+            inputs = inputs
+            labels = labels
 
             with paddle.no_grad():
                 preds = model(inputs)
