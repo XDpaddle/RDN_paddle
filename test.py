@@ -27,7 +27,7 @@ if __name__ == '__main__':
                 num_features=args.num_features,
                 growth_rate=args.growth_rate,
                 num_blocks=args.num_blocks,
-                num_layers=args.num_layers).to(device)
+                num_layers=args.num_layers)
     
 
     state_dict = model.state_dict() # model.state_dict()是浅拷贝,model.load_state_dict(xxx) 是深拷贝
